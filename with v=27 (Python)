@@ -1,0 +1,47 @@
+
+#Created on Sat Jun 11 14:59:30 2022
+
+#@author: jerry
+
+import math
+# constant value setting
+m=0.43 # mass(kg)
+r=0.11 # radius(m)
+rho=1.225 # air density (kg/m^3)
+Cd=0.47 # drag coefficient for sphere
+Ku=0.75 #
+Re=4*10**5 #
+g=9.8 # gravitational acceleration
+u=3 # average wind speed in HsinChu(m/s)
+# initial state setting
+v=27 # initial velocity(m/s)
+w=18*math.pi # initial angular velocity (rad/s)
+dt=0.01 # time interval(s)
+L=15 # distance from the goal line(m)
+h=2.4384 # height of the goal(m)
+width=7.3152 # width of the goal(m)
+CL=0.25 #average lift coefficient for football
+#dr=dx+dy+dz; dx=Vx*dt,dy=Vy*dt,dz=Vz*dt
+
+# physical properties setting
+theta=math.radians(80)
+phi=math.radians(180)
+vx=[v*math.sin(theta)*math.cos(phi)]
+vy=[v*math.sin(theta)*math.sin(phi)] 
+vz=[v*math.cos(theta)]
+x,y,z=[0],[0],[0]
+for _ in range(100):
+    v=(vx[-1]**2+vy[-1]**2+vz[-1])**0.5
+    ax=-0.5*Cd*phi*math.pi*r**2/m*(vx[-1]/v)
+    ay=(-0.5*Cd*phi*math.pi*r**2/m*(vy[-1]/v)--0.5*(Ku*w*r/v)*phi*math.pi*r**2/m)
+    az=(-0.5*Cd*phi*math.pi*r**2/m*(vz[-1]/v)+phi*g*math.pi*r**3/m-g)
+    vx.append(vx[-1]+ax*dt)
+    vy.append(vy[-1]+ay*dt)
+    vz.append(vz[-1]+az*dt)
+    x.append(x[-1]+vx[-1]*dt)
+    y.append(y[-1]+vy[-1]*dt)
+    z.append(z[-1]+vz[-1]*dt)
+    if z[-1]<0 or x[-1]<-L:
+        break
+    if not -width/2<y[-1]<width/2:
+        break
