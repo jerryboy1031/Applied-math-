@@ -1,0 +1,7 @@
+% a=[] from Python
+% t
+plot(t,a);
+grid on
+title("Acceleration of Magnus force")
+xlabel("time (s)")
+ylabel("accerlation (m/s^2)")
