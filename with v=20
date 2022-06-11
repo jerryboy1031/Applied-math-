@@ -41,7 +41,7 @@ for _ in range(100):
     y.append(y[-1]+vy[-1]*dt)
     z.append(z[-1]+vz[-1]*dt)
     amag.append(-0.5*(Ku*w*r/v)*phi*math.pi*r**2/m)
-    if x[-1]<-L:
+    if z[-1]<0 or x[-1]<-L:
         break
     if not -width/2<y[-1]<width/2:
         break
