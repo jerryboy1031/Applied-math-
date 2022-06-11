@@ -1,0 +1,18 @@
+%x=[] from Python
+%y=[] from Python
+%z=[] from Python
+
+%the width of goal is 7.3152(m)
+%the height is 2.4384(m)
+%the distance from goal line is 15(m)
+
+plot3(x,y,z,"o-");
+hold on
+% create a goal
+goalx=[-15 -15 -15 -15 -15];
+goaly=[-7.3152/2 -7.3152/2 7.3152/2 7.3152/2 -7.3152/2];
+goalz=[0 2.4384 2.4384 0 0];
+line(goalx,goaly,goalz); 
+
+title("The trajectory with \theta=80(degree)");
+axis normal
