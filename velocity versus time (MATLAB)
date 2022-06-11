@@ -1,0 +1,7 @@
+% vy=[] from Python 
+% t
+plot(t,vy);
+grid on
+title("Velocity of y direction")
+xlabel("time (s)")
+ylabel("velocity (m/s)")
