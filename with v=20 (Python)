@@ -42,5 +42,4 @@ for _ in range(100):
     z.append(z[-1]+vz[-1]*dt)
     if z[-1]<0 or x[-1]<-L: # stop if the ball falls to ground or goes over the goal line 
         break
-    if not -width/2<y[-1]<width/2: #stop if the ball doesn't in the goal zone.
-        break
+
